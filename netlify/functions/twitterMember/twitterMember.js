@@ -37,13 +37,16 @@ const handler = async (event) => {
       })
     };
     // TODO Send a request to the Orbit API to create or update member
-    const response = await fetch(`https://app.orbit.love/api/v1/bryan-personal/members`, options)
+    const response = await fetch(`https://app.orbit.love/api/v1/${process.env.ORBIT_WORKSPACE}/members`, options)
     const json = await response.json()
     const member = json.data
     const { id, attributes } = member
     const { name } = attributes
     console.log(json)
-    const successMessage = `Successfully added ${name} to the Orbit member list with id of ${id}`
+    const successMessage = {
+      message: `Successfully added ${name} to the Orbit member list with id of ${id}`,
+      url: `https://app.orbit.love/${process.env.ORBIT_WORKSPACE}/members/${id}`
+    }
       
 
     return {
