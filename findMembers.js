@@ -29,9 +29,10 @@ async function getMembers() {
           Authorization: `Bearer ${process.env.ORBIT_API_KEY}`
         },
         body: JSON.stringify({
-          member: {email: 'bryanlrobinson@gmail.com', title: "King of the world"},
-          identity: {source: 'twitter', username: '@brob'},
-          identity: {source: 'linkedin', username: 'bryanlrobinson'},
+          identity: {
+            source: 'twitter',
+            username: '@shanselman'
+          }
         })
       };
       
